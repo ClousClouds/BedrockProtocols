@@ -14,13 +14,9 @@ declare(strict_types=1);
 
 namespace pocketmine\network\mcpe\protocol\types;
 
-final class UpdateType{
-	public const ClearOverrides = 0;
-	public const RemoveOverride = 1;
-	public const SetIntOverride = 2;
-	public const SetFloatOverride = 3;
-
-	private function __construct(){
-	  //NOOP
-	}
+enum UpdateType : int{
+	case CLEAR_OVERRIDE = 0;
+	case REMOVE_OVERRIDE = 1;
+	case SET_INT_OVERRIDE = 2;
+	case SET_FLOAT_OVERRIDE = 3;
 }

@@ -110,9 +110,9 @@ trait PacketHandlerDefaultImplTrait{
 		return false;
 	}
 
-	public function handleLevelSoundEventPacketV1(LevelSoundEventPacketV1 $packet) : bool{
-		return false;
-	}
+	//public function handleLevelSoundEventPacketV1(LevelSoundEventPacketV1 $packet) : bool{
+		//return false;
+	//}
 
 	public function handleLevelEvent(LevelEventPacket $packet) : bool{
 		return false;
@@ -470,9 +470,9 @@ trait PacketHandlerDefaultImplTrait{
 		return false;
 	}
 
-	public function handleLevelSoundEventPacketV2(LevelSoundEventPacketV2 $packet) : bool{
-		return false;
-	}
+	//public function handleLevelSoundEventPacketV2(LevelSoundEventPacketV2 $packet) : bool{
+		//return false;
+	//}
 
 	public function handleNetworkChunkPublisherUpdate(NetworkChunkPublisherUpdatePacket $packet) : bool{
 		return false;

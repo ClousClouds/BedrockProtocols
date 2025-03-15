@@ -14,13 +14,9 @@ declare(strict_types=1);
 
 namespace pocketmine\network\mcpe\protocol\types;
 
-final class GraphicsMode{
-	public const Simple = 0;
-	public const Fancy = 1;
-	public const Advanced = 2;
-	public const RayTraced = 3;
-
-	private function __construct(){
-	  //NOOP
-	}
+enum GraphicsMode : int{
+	case SIMPLE = 0;
+	case FANCY = 1;
+	case ADVANCED = 2;
+	case RAY_TRACED = 3;
 }

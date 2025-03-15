@@ -18,31 +18,31 @@ use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
 use pocketmine\network\mcpe\protocol\types\GraphicsMode;
 
 class UpdateClientOptionsPacket extends DataPacket implements ClientboundPacket{
-    public const NETWORK_ID = ProtocolInfo::UPDATE_CLIENT_OPTIONS_PACKET;
+	public const NETWORK_ID = ProtocolInfo::UPDATE_CLIENT_OPTIONS_PACKET;
 
-    public ?GraphicsMode $graphicsMode = null;
+	public ?GraphicsMode $graphicsMode = null;
 
-    /**
-     * @generate-create-func
-     */
-    public static function create(?GraphicsMode $graphicsMode) : self{
-        $result = new self;
-        $result->graphicsMode = $graphicsMode;
-        return $result;
-    }
+	/**
+	 * @generate-create-func
+	 */
+	public static function create(?GraphicsMode $graphicsMode) : self{
+		$result = new self;
+		$result->graphicsMode = $graphicsMode;
+		return $result;
+	}
 
-    protected function decodePayload(PacketSerializer $in) : void{
-        $this->graphicsMode = $in->getBool() ? GraphicsMode::from($in->getVarInt()) : null;
-    }
+	protected function decodePayload(PacketSerializer $in) : void{
+		$this->graphicsMode = $in->getBool() ? GraphicsMode::from($in->getVarInt()) : null;
+	}
 
-    protected function encodePayload(PacketSerializer $out) : void{
-        $out->putBool($this->graphicsMode !== null);
-        if($this->graphicsMode !== null){
-            $out->putVarInt($this->graphicsMode->value);
-        }
-    }
+	protected function encodePayload(PacketSerializer $out) : void{
+		$out->putBool($this->graphicsMode !== null);
+		if($this->graphicsMode !== null){
+			$out->putVarInt($this->graphicsMode->value);
+		}
+	}
 
-    public function handle(PacketHandlerInterface $handler) : bool{
-        return $handler->handleUpdateClientOptions($this);
-    }
+	public function handle(PacketHandlerInterface $handler) : bool{
+		return $handler->handleUpdateClientOptions($this);
+	}
 }
