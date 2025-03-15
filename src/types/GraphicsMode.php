@@ -15,10 +15,10 @@ declare(strict_types=1);
 namespace pocketmine\network\mcpe\protocol\types;
 
 final class GraphicsMode{
-	public const SIMPLE = 0;
-	public const FANCY = 1;
-	public const ADVANCED = 2;
-	public const RAY_TRACED = 3;
+	public const Simple = 0;
+	public const Fancy = 1;
+	public const Advanced = 2;
+	public const RayTraced = 3;
 
 	private function __construct(){
 	  //NOOP
