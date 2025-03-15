@@ -14,9 +14,13 @@ declare(strict_types=1);
 
 namespace pocketmine\network\mcpe\protocol\types;
 
-final class UpdateType {
+final class UpdateType{
 	public const CLEAR_OVERRIDES = 0;
 	public const REMOVE_OVERRIDE = 1;
 	public const SET_INT_OVERRIDE = 2;
 	public const SET_FLOAT_OVERRIDE = 3;
+
+	private function __construct(){
+	  //NOOP
+	}
 }

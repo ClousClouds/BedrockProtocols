@@ -27,7 +27,7 @@ class CameraAimAssistInstructionPacket extends DataPacket implements Clientbound
 	/**
 	 * @generate-create-func
 	 */
-	public static function create(string $presetId, CameraAimAssistActionType $actionType, bool $allowAimAssist) : self{
+	public static function create(string $presetId, \pocketmine\network\mcpe\protocol\types\camera\CameraAimAssistActionType $actionType, bool $allowAimAssist) : self{
 		$result = new self;
 		$result->presetId = $presetId;
 		$result->actionType = $actionType;

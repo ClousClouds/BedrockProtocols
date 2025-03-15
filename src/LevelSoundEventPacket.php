@@ -33,7 +33,15 @@ class LevelSoundEventPacket extends DataPacket implements ClientboundPacket, Ser
 	/**
 	 * @generate-create-func
 	 */
-	public static function create(int $sound, Vector3 $position, int $extraData, string $entityType, bool $isBabyMob, bool $disableRelativeVolume, int $entityUniqueId = -1) : self{
+	public static function create(
+		int $sound,
+		\pocketmine\math\Vector3 $position,
+		int $extraData,
+		string $entityType,
+		bool $isBabyMob,
+		bool $disableRelativeVolume,
+		int $entityUniqueId,
+	) : self{
 		$result = new self;
 		$result->sound = $sound;
 		$result->position = $position;
