@@ -849,4 +849,16 @@ trait PacketHandlerDefaultImplTrait{
 	public function handleMovementPredictionSync(MovementPredictionSyncPacket $packet) : bool{
 		return false;
 	}
+	
+	public function handlePlayerUpdateEntityOverrides(PlayerUpdateEntityOverridesPacket $packet) : bool{
+	  return false;
+	}
+
+	public function handlePlayerVideoCapture(PlayerVideoCapturePacket $packet) : bool{
+	  return false;
+	}
+	
+	public function handleUpdateClientOptions(UpdateClientOptionsPacket $packet) : bool{
+	  return false;
+	}
 }

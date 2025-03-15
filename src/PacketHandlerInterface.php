@@ -432,7 +432,9 @@ interface PacketHandlerInterface{
 
 	public function handleMovementPredictionSync(MovementPredictionSyncPacket $packet) : bool;
 
-	public function handlePlayerUpdateClientOptions(PlayerUpdateClientOptionsPacket $packet) : bool;
+	public function handlePlayerUpdateEntityOverrides(PlayerUpdateEntityOverridesPacket $packet) : bool;
 
 	public function handlePlayerVideoCapture(PlayerVideoCapturePacket $packet) : bool;
+	
+	public function handleUpdateClientOptions(UpdateClientOptionsPacket $packet) : bool;
 }
