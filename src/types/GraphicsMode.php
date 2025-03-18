@@ -16,7 +16,18 @@ namespace pocketmine\network\mcpe\protocol\types;
 
 enum GraphicsMode : int{
 	case SIMPLE = 0;
-	case FANCY = 1;
-	case ADVANCED = 2;
-	case RAY_TRACED = 3;
+    case FANCY = 1;
+    case ADVANCED = 2;
+    case RAY_TRACED = 3;
+
+    private static array $values = [
+        self::SIMPLE,
+        self::FANCY,
+        self::ADVANCED,
+        self::RAY_TRACED,
+    ];
+
+    public static function from(int $id) : self{
+        return self::$values[$id];
+    }
 }
