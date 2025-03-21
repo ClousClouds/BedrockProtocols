@@ -51,7 +51,7 @@ class MovementPredictionSyncPacket extends DataPacket implements ServerboundPack
 		float $health,
 		float $hunger,
 		bool $flying,
-		int $actorUniqueId
+		int $actorUniqueId,
 	) : self{
 		$result = new self;
 		$result->flags = $flags;
@@ -81,7 +81,7 @@ class MovementPredictionSyncPacket extends DataPacket implements ServerboundPack
 		float $health,
 		float $hunger,
 		bool $flying,
-		int $actorUniqueId
+		int $actorUniqueId,
 	) : self{
 		if ($flags->getLength() !== 120) {
 			throw new \InvalidArgumentException("Input flags must be 120 bits long");
