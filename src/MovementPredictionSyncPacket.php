@@ -17,7 +17,7 @@ namespace pocketmine\network\mcpe\protocol;
 use pocketmine\network\mcpe\protocol\serializer\BitSet;
 use pocketmine\network\mcpe\protocol\serializer\PacketSerializer;
 
-class MovementPredictionSyncPacket extends DataPacket implements ServerboundPacket {
+class MovementPredictionSyncPacket extends DataPacket implements ServerboundPacket{
 	public const NETWORK_ID = ProtocolInfo::MOVEMENT_PREDICTION_SYNC_PACKET;
 
 	private BitSet $flags;
@@ -52,7 +52,7 @@ class MovementPredictionSyncPacket extends DataPacket implements ServerboundPack
 		float $hunger,
 		bool $flying,
 		int $actorUniqueId
-	) : self {
+	) : self{
 		$result = new self;
 		$result->flags = $flags;
 		$result->scale = $scale;
@@ -82,7 +82,7 @@ class MovementPredictionSyncPacket extends DataPacket implements ServerboundPack
 		float $hunger,
 		bool $flying,
 		int $actorUniqueId
-	) : self {
+	) : self{
 		if ($flags->getLength() !== 120) {
 			throw new \InvalidArgumentException("Input flags must be 120 bits long");
 		}
@@ -90,31 +90,31 @@ class MovementPredictionSyncPacket extends DataPacket implements ServerboundPack
 		return self::internalCreate($flags, $scale, $width, $height, $movementSpeed, $underwaterMovementSpeed, $lavaMovementSpeed, $jumpStrength, $health, $hunger, $flying, $actorUniqueId);
 	}
 
-	public function getFlags() : BitSet { return $this->flags; }
+	public function getFlags() : BitSet{ return $this->flags; }
 
-	public function getScale() : float { return $this->scale; }
+	public function getScale() : float{ return $this->scale; }
 
-	public function getWidth() : float { return $this->width; }
+	public function getWidth() : float{ return $this->width; }
 
-	public function getHeight() : float { return $this->height; }
+	public function getHeight() : float{ return $this->height; }
 
-	public function getMovementSpeed() : float { return $this->movementSpeed; }
+	public function getMovementSpeed() : float{ return $this->movementSpeed; }
 
-	public function getUnderwaterMovementSpeed() : float { return $this->underwaterMovementSpeed; }
+	public function getUnderwaterMovementSpeed() : float{ return $this->underwaterMovementSpeed; }
 
-	public function getLavaMovementSpeed() : float { return $this->lavaMovementSpeed; }
+	public function getLavaMovementSpeed() : float{ return $this->lavaMovementSpeed; }
 
-	public function getJumpStrength() : float { return $this->jumpStrength; }
+	public function getJumpStrength() : float{ return $this->jumpStrength; }
 
-	public function getHealth() : float { return $this->health; }
+	public function getHealth() : float{ return $this->health; }
 
-	public function getHunger() : float { return $this->hunger; }
+	public function getHunger() : float{ return $this->hunger; }
 
-	public function isFlying() : bool { return $this->flying; }
+	public function isFlying() : bool{ return $this->flying; }
 
-	public function getActorUniqueId() : int { return $this->actorUniqueId; }
+	public function getActorUniqueId() : int{ return $this->actorUniqueId; }
 
-	protected function decodePayload(PacketSerializer $in) : void {
+	protected function decodePayload(PacketSerializer $in) : void{
 		$this->flags = BitSet::read($in, 120);
 		$this->scale = $in->getLFloat();
 		$this->width = $in->getLFloat();
@@ -129,7 +129,7 @@ class MovementPredictionSyncPacket extends DataPacket implements ServerboundPack
 		$this->actorUniqueId = $in->getActorUniqueId();
 	}
 
-	protected function encodePayload(PacketSerializer $out) : void {
+	protected function encodePayload(PacketSerializer $out) : void{
 		$this->flags->write($out);
 		$out->putLFloat($this->scale);
 		$out->putLFloat($this->width);
@@ -144,7 +144,7 @@ class MovementPredictionSyncPacket extends DataPacket implements ServerboundPack
 		$out->putActorUniqueId($this->actorUniqueId);
 	}
 
-	public function handle(PacketHandlerInterface $handler) : bool {
+	public function handle(PacketHandlerInterface $handler) : bool{
 		return $handler->handleMovementPredictionSync($this);
 	}
 }
